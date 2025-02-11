@@ -2,15 +2,17 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <!-- Make site responsive on mobile devices -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>RIDDITHOMES Watermark + QR</title>
-
-  <!-- Link to external CSS -->
   <link rel="stylesheet" href="style.css" />
 
-  <!-- QR code library (CDN) -->
+  <!-- QR code library -->
   <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.1/build/qrcode.min.js"></script>
+  
+  <!-- New dependencies for iPhone support -->
+  <script src="https://cdn.jsdelivr.net/npm/heic2any@0.0.3/dist/heic2any.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/exif-js@2.3.0/exif.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.5/dist/FileSaver.min.js"></script>
 </head>
 <body>
   <div class="container">
@@ -22,10 +24,8 @@
       </p>
     </header>
 
-    <!-- File upload & options -->
     <section class="form-section">
       <div class="upload-input">
-        <!-- Custom "Choose an Image" button that triggers hidden input -->
         <label for="image-input" class="file-upload-btn btn">Choose an Image</label>
         <input
           type="file"
@@ -46,18 +46,15 @@
       </div>
     </section>
 
-    <!-- Preview area -->
     <section id="preview-container" class="preview-container">
       <img id="preview" alt="Preview" />
     </section>
 
-    <!-- Download button (disabled by default until image is processed) -->
     <div class="action-buttons">
       <button id="download-btn" class="btn" disabled>Download Watermarked Image</button>
     </div>
   </div>
 
-  <!-- External JS for watermark/QR logic -->
   <script src="script.js"></script>
 </body>
 </html>
